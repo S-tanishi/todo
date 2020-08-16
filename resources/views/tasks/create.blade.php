@@ -1,8 +1,7 @@
 @extends('layout')
 
 @section('styles')
-  <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="http://npmcdn.com/flatpickr/dist/themes/meterial_blue.css">
+  @include('share.flatpickr.styles')
 @endsection
 
 @section('content')
@@ -41,13 +40,5 @@
 @endsection
 
 @secton('scripts')
-<script src="http;//npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
-<script src="http://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
-<script>
-  flatpickr(document.getElemenById('due_date'), {
-    locale: 'ja',
-    dateFormat: "Y/m/d",
-    minDate: new Date()
-   });
-</script>
+  @include('share.flatpickr.scripts')
 @endsection
