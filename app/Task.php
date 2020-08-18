@@ -5,13 +5,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class Folder extends Model
-{
-    public function tasks()
-    {
-        return $this->hasMany('App\Task');
-    }
-}
 class Task extends Model
 {
     /**
@@ -38,6 +31,20 @@ class Task extends Model
         }
 
         return self::STATUS[$status]['class'];
+    }
+
+    /**
+     * 状態を表すHTMLクラス
+     */
+    public function getStatusClassAttribute()
+    {
+        // 状態値
+        $status = $this->attributes['status'];
+
+        // 定義されていなければ空文字を返す
+        if (!isset(self::STATUS[$status])) {
+            return '';
+        }
     }
         /**
      * 整形した期限日

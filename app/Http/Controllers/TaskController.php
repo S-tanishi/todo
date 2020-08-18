@@ -8,7 +8,6 @@ use App\Http\Requests\EditTask;
 use App\Task;
 use Illuminate\Http\Request;
 
-
 class TaskController extends Controller
 {
     public function index(int $id)
