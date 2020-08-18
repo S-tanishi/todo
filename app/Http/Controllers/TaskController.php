@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Folder;
 use App\Http\Requests\CreateTask;
+use App\Http\Requests\EditTask;
 use App\Task;
 use Illuminate\Http\Request;
 
 
 class TaskController extends Controller
 {
-    public function index(ini $id)
+    public function index(int $id)
     {
         // すべてのフォルダを取得する
         $folders = Folder::all();
@@ -28,14 +29,14 @@ class TaskController extends Controller
         ]);
     }
 
-    public function showCreateForm(ini $id)
+    public function showCreateForm(int $id)
     {
         return view('tasks/create', [
             'folder_id' => $id
         ]);
     }
 
-    public function create(ini $id, CreateTask $request)
+    public function create(int $id, CreateTask $request)
     {
         $current_folder = Folder::find($id);
 
@@ -63,10 +64,10 @@ class TaskController extends Controller
         ]);
     }
 
-    public function edit(ini $id, $task_id, EditTask $request)
+    public function edit(int $id, $task_id, EditTask $request)
     {
         //1
-        $task = Task::find($task-id);
+        $task = Task::find($task_id);
 
         //2
         $task->title = $request->title;
