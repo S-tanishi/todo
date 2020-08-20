@@ -14,9 +14,9 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'test',
             'email' => 'dummy@email.com',
-            'password' => bcrypt('test1234')
-            'create_at' => Carbon::now()
-            'update_at' => Carbon::now()
+            'password' => bcrypt('test1234'),
+            'create_at' => Carbon::now(),
+            'update_at' => Carbon::now(),
         ]);
     }
 }
