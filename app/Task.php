@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
@@ -30,11 +30,12 @@ class Task extends Model
             return '';
         }
 
-        return self::STATUS[$status]['class'];
+        return self::STATUS[$status]['label'];
     }
 
     /**
      * 状態を表すHTMLクラス
+     * @return string
      */
     public function getStatusClassAttribute()
     {
@@ -45,8 +46,11 @@ class Task extends Model
         if (!isset(self::STATUS[$status])) {
             return '';
         }
+
+        return self::STATUS[$status]['class'];
     }
-        /**
+
+    /**
      * 整形した期限日
      * @return string
      */
