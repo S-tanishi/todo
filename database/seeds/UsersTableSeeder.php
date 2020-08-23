@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('test1234'),
             'create_at' => Carbon::now(),
             'update_at' => Carbon::now(),
+            $person->timestamps = false;    // 追記
         ]);
     }
 }
